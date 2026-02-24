@@ -4,13 +4,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ElementUtils {
     private WebDriver driver; // null session id
+    private WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
 
     private void nullCheck(String value){
         if (value == null) { throw new NullPointerException("value is null");}
@@ -252,6 +258,72 @@ public class ElementUtils {
 
     //************************************* isSelected *******************************//
 
+    //************************************* Actions *******************************//
+
+    public  void handleSubMenu(By parentLocator, By childLocator){
+        Actions act = new Actions(driver);
+        act.moveToElement(driver.findElement(parentLocator)).perform();
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(childLocator)
+        );
+        driver.findElement(childLocator).click();
+    }
+
+    public void hover(By locator) {
+        WebElement element = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(locator)
+        );
+
+        new Actions(driver)
+                .moveToElement(element)
+                .pause(Duration.ofMillis(200))
+                .perform();
+    }
+
+    public void dragAndDrop( By source, By dest) {
+        Actions act= new Actions(driver);
+        act.dragAndDrop(driver.findElement(source), driver.findElement(dest)).perform();
+        // or
+/*
+        act.dragAndDropBy(driver.findElement(source), 100,0 ).release().perform();
+*/
+        //  or
+   /*     act.
+                clickAndHold(driver.findElement(source)).
+                moveToElement(driver.findElement(dest)).
+                release().build().perform();*/
+    }
+
+    public void doActionsSendKeys(By locator, String text)
+    {
+        Actions act= new Actions(driver);
+        act.sendKeys(driver.findElement(locator), text).perform();
+    }
+
+    public void doActionsClick(By locator)
+    {
+        Actions act= new Actions(driver);
+        act.click(driver.findElement(locator)).perform();
+    }
+    public void doSendKeysWithPause(By locator, String text)
+    {
+        Actions act= new Actions(driver);
+        char[] ch =text.toCharArray();
+        for (char c: ch)
+        {
+            act.sendKeys(driver.findElement(locator), String.valueOf(c)).pause(500).perform();
+        }
+
+    }
+    public  void multiLevelhover(By ele1, By ele2, By ele3, By ele4) throws InterruptedException {
+        Actions act= new Actions(driver);
+        Thread.sleep(1000);
+
+        act.moveToElement(driver.findElement(ele1)).click().pause(Duration.ofMillis(500)).perform();
+        act.moveToElement(driver.findElement(ele2)).pause(Duration.ofMillis(500)).perform();
+        act.moveToElement(driver.findElement(ele3)).pause(Duration.ofMillis(500)).perform();
+        act.moveToElement(driver.findElement(ele4)).click().perform();
+    }
 
 
 }
