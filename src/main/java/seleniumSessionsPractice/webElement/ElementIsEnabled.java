@@ -9,7 +9,7 @@ public class ElementIsEnabled {
 
     static WebDriver driver;
 
-    public static WebElement getElement(By locator){
+    public static WebElement getElement(By locator) {
         return driver.findElement(locator);
     }
 
@@ -21,16 +21,12 @@ public class ElementIsEnabled {
         return getElement(locator).isSelected();
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         driver = new ChromeDriver();
         driver.get("https://classic.freecrm.com/register/");
 
         By locator = By.id("submitButton");
         isElementEnabled(locator);
-
-
-
 
 
     }

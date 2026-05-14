@@ -13,35 +13,36 @@ public class SelectDropDownHandling {
 
     WebDriver driver;
 
-    public void doSelectByValue(By locator, String att)
-    {
+        /*  <select id="country">
+                    <option value="in">India</option>
+                    <option value="us">United States</option>
+                    <option value="uk">United Kingdom</option>
+        <   /select>*/
+    public void doSelectByValue(By locator, String attribute) {
         Select sel = new Select(driver.findElement(locator));
-        sel.selectByValue(att);
+        sel.selectByValue(attribute);// will select unitedStates
 
     }
-    public void doSelectByIndex(By locator, int index)
-    {
+
+    public void doSelectByIndex(By locator, int index) {
         Select sel = new Select(driver.findElement(locator));
         sel.selectByIndex(1);
 
     }
 
-    public void doSelectByVisibleText(By locator, String att)
-    {
+    public void doSelectByVisibleText(By locator, String att) {
         Select sel = new Select(driver.findElement(locator));
-        sel.selectByValue(att);
+        sel.selectByVisibleText(att);
 
     }
 
-    public List<String> getOptionsText(By locator)
-    {
+    public List<String> getOptionsText(By locator) {
         Select sel = new Select(driver.findElement(locator));
         List<WebElement> dropDownOptions = sel.getOptions();
 
-        List<String> dropDownOptionsText =new ArrayList<String>();// List.of()
+        List<String> dropDownOptionsText = new ArrayList<String>();// List.of()
 
-        for(WebElement option : dropDownOptions)
-        {
+        for (WebElement option : dropDownOptions) {
             String text = option.getText();
             dropDownOptionsText.add(text);
         }
@@ -49,22 +50,15 @@ public class SelectDropDownHandling {
         return dropDownOptionsText;
     }
 
-    public int dropDownSize(By locator)
-    {
+    public int dropDownSize(By locator) {
         Select sel = new Select(driver.findElement(locator));
         return sel.getOptions().size();
     }
 
 
-
-
-
-
-
     public static void main(String[] args) {
         WebDriver driver = new ChromeDriver();
         driver.get("");
-
         By country = By.name("country");
         By region = By.name("india");
 
@@ -88,10 +82,9 @@ public class SelectDropDownHandling {
         Select sel = new Select(driver.findElement(country));
         List<WebElement> dropDownOptions = sel.getOptions();
 
-        List<String> dropDownOptionsText =new ArrayList<String>();// List.of()
+        List<String> dropDownOptionsText = new ArrayList<String>();// List.of()
 
-        for(WebElement option : dropDownOptions)
-        {
+        for (WebElement option : dropDownOptions) {
             String text = option.getText();
             dropDownOptionsText.add(text);
         }
@@ -99,22 +92,28 @@ public class SelectDropDownHandling {
         //**************************** Multiple *************************//
         // 'multiple' attribute will be present inside select tag
 
-        By locator2= By.xpath("");
+        By locator2 = By.xpath("");
 
         Select selDropDown = new Select(driver.findElement(locator2));
         boolean isMultiple = selDropDown.isMultiple();
-        if (isMultiple)
-        {
+        if (isMultiple) {
             selDropDown.selectByValue("United States");
             selDropDown.deselectByVisibleText("India");
         }
 
+        //1   WAP to select a value without using select class methods: by index , by value ...
+        String expectedText = "Canada";
+        sel = new Select(driver.findElement(locator2));
+        List<WebElement> listOptions = sel.getOptions();
 
-
-
-
-
-
+        for (WebElement element: listOptions )
+        {
+            if (element.getText().equals(expectedText.trim()))
+            {
+                element.click();
+                break;
+            }
+        }
 
     }
 

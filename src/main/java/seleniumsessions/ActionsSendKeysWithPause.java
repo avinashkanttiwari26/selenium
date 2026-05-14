@@ -7,16 +7,16 @@ import org.openqa.selenium.interactions.Actions;
 
 public class ActionsSendKeysWithPause {
 
-	static WebDriver driver;
+    static WebDriver driver;
 
-	public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
 
-		driver = new ChromeDriver();
-		driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/register");
+        driver = new ChromeDriver();
+        driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/register");
 
-		By search = By.name("search");
-		doActionsSendKeysWithPause(search, "samsung", 500);
-		
+        By search = By.name("search");
+        doActionsSendKeysWithPause(search, "samsung", 500);
+
 //		String searchKey = "macbook";
 //
 //		Actions act = new Actions(driver);
@@ -28,25 +28,25 @@ public class ActionsSendKeysWithPause {
 //
 //		}
 
-		// charsequence(I)--> String, StringBuilder, StrinBuffer
-		// driver.findElement(search).sendKeys(String.valueOf('c'));
+        // charsequence(I)--> String, StringBuilder, StrinBuffer
+        // driver.findElement(search).sendKeys(String.valueOf('c'));
 
-	}
+    }
 
-	public static void doActionsSendKeysWithPause(By locator, String value, long pauseTime) {
-		Actions act = new Actions(driver);
-		char ch[] = value.toCharArray();
-		for (char c : ch) {
-			act.sendKeys(driver.findElement(locator), String.valueOf(c)).pause(pauseTime).perform();
-		}
-	}
-	
-	public static void doActionsSendKeysWithPause(By locator, String value) {
-		Actions act = new Actions(driver);
-		char ch[] = value.toCharArray();
-		for (char c : ch) {
-			act.sendKeys(driver.findElement(locator), String.valueOf(c)).pause(500).perform();
-		}
-	}
+    public static void doActionsSendKeysWithPause(By locator, String value, long pauseTime) {
+        Actions act = new Actions(driver);
+        char ch[] = value.toCharArray();
+        for (char c : ch) {
+            act.sendKeys(driver.findElement(locator), String.valueOf(c)).pause(pauseTime).perform();
+        }
+    }
+
+    public static void doActionsSendKeysWithPause(By locator, String value) {
+        Actions act = new Actions(driver);
+        char ch[] = value.toCharArray();
+        for (char c : ch) {
+            act.sendKeys(driver.findElement(locator), String.valueOf(c)).pause(500).perform();
+        }
+    }
 
 }

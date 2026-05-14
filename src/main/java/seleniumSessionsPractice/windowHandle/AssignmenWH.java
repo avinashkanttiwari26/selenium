@@ -14,7 +14,7 @@ public class AssignmenWH {
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver = new ChromeDriver();
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");//parent
-        String parentWindowHandle= driver.getWindowHandle();
+        String parentWindowHandle = driver.getWindowHandle();
         Thread.sleep(3000);
 
         driver.findElement(By.xpath("//a[contains(@href, 'twitter')]")).click();
@@ -27,12 +27,11 @@ public class AssignmenWH {
 
 
         Set<String> whs = driver.getWindowHandles();
-        List<String> ls= new ArrayList<>(whs);
+        List<String> ls = new ArrayList<>(whs);
 
-        for(String wh: whs)
-        {
+        for (String wh : whs) {
             driver.switchTo().window(wh);
-            if(!wh.equals(parentWindowHandle)){
+            if (!wh.equals(parentWindowHandle)) {
                 System.out.println(driver.getTitle());
                 driver.close();
             }

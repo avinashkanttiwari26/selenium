@@ -15,7 +15,7 @@ public class IFrameInShadowdom {
 
 
         JavascriptExecutor js = ((JavascriptExecutor) driver);
-        WebElement pizza = (WebElement)js.executeScript(jsScript);
+        WebElement pizza = (WebElement) js.executeScript(jsScript);
         pizza.sendKeys("Veg Pizaa");
 
 

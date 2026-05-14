@@ -7,20 +7,20 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class StaleElementReferenceException {
 
-	static WebDriver driver;
+    static WebDriver driver;
 
-	public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
 
-		driver = new ChromeDriver();//browser
-		driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/login");//page DOM v1
-		
-		By email_ele = By.id("input-email");
-		
-		getElement(email_ele).sendKeys("naveen@gmail.com");
-		driver.navigate().refresh();
-		getElement(email_ele).sendKeys("suma@gmail.com");
-		
-		
+        driver = new ChromeDriver();//browser
+        driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/login");//page DOM v1
+
+        By email_ele = By.id("input-email");
+
+        getElement(email_ele).sendKeys("naveen@gmail.com");
+        driver.navigate().refresh();
+        getElement(email_ele).sendKeys("suma@gmail.com");
+
+
 //		WebElement emailId = driver.findElement(By.id("input-email"));//v1
 //		
 //		emailId.sendKeys("naveen@gmail.com");//v1
@@ -38,16 +38,12 @@ public class StaleElementReferenceException {
 //		//v2
 //		emailId.sendKeys("suma@gmail.com");
 
-		
-		
-		
-	}
-	
-	public static WebElement getElement(By locator) {
-		return driver.findElement(locator);
-	}
-	
-	
-	
+
+    }
+
+    public static WebElement getElement(By locator) {
+        return driver.findElement(locator);
+    }
+
 
 }

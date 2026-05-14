@@ -1,6 +1,5 @@
 package seleniumSessionsPractice.jsExecutor;
 
-import org.jspecify.annotations.Nullable;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -63,17 +62,15 @@ public class ShadowDomInIFrame {
 
 
         //document.querySelector("#snacktime").shadowRoot.querySelector("#tea")
-        String jsScript= "return document\n" +
+        String jsScript = "return document\n" +
                 "       .querySelector(\"#snacktime\")\n" +
                 "       .shadowRoot\n" +
                 "       .querySelector(\"#tea\");";
-        JavascriptExecutor js= (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) driver;
         WebElement ele = (WebElement) js.executeScript(jsScript);
 
         ele.sendKeys("hmmmmm");
         driver.switchTo().defaultContent();
-
-
 
 
     }

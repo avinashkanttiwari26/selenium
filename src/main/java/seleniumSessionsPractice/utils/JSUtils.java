@@ -76,6 +76,7 @@ public final class JSUtils {
     public static void removeDisabledAttribute(WebDriver driver, WebElement element) {
         getJS(driver).executeScript("arguments[0].removeAttribute('disabled');", element);
     }
+
     public static void triggerChangeEvent(WebDriver driver, WebElement element) {
         getJS(driver).executeScript(
                 "arguments[0].dispatchEvent(new Event('change'));", element

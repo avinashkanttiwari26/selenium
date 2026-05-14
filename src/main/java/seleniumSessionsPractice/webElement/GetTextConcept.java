@@ -9,13 +9,11 @@ public class GetTextConcept {
 
     static WebDriver driver;
 
-    public static String doGetText(By locator)
-    {
+    public static String doGetText(By locator) {
         return driver.findElement(locator).getText();
     }
 
-    public static String doGetAttribute(By locator, String attribute)
-    {
+    public static String doGetAttribute(By locator, String attribute) {
         return driver.findElement(locator).getAttribute(attribute);
     }
 

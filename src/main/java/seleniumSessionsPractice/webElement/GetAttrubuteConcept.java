@@ -11,15 +11,13 @@ import java.util.List;
 public class GetAttrubuteConcept {
     static WebDriver driver;
 
-    public static List<String> getAttributeList(By locator, String att)
-    {
+    public static List<String> getAttributeList(By locator, String att) {
         List<WebElement> attList = driver.findElements(locator);
         List<String> listAtt = new ArrayList<String>();
 
-        for(WebElement e: attList)
-        {
+        for (WebElement e : attList) {
             String attValue = e.getAttribute(att).trim();
-            if(!attValue.equals(null) && !attValue.isEmpty()) {
+            if (!attValue.equals(null) && !attValue.isEmpty()) {
                 //System.out.println(attValue);
                 listAtt.add(attValue);
             }
@@ -28,18 +26,17 @@ public class GetAttrubuteConcept {
     }
 
     public static void main(String[] args) {
-        driver=new ChromeDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.flipkart.com");
 
-        By img= By.tagName("img");
+        By img = By.tagName("img");
         List<WebElement> imgList = driver.findElements(img);
 
-        for(WebElement e: imgList)
-        {
+        for (WebElement e : imgList) {
 
             String srcValue = e.getAttribute("src");
-            if(!srcValue.equals(null)) {
+            if (!srcValue.equals(null)) {
                 System.out.println(srcValue);
             }
         }

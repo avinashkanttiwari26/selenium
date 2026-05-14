@@ -5,11 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class StaleElementException {
+public class StaleElementExceptionConcept {
     public static void main(String[] args) throws InterruptedException {
-        WebDriver  driver= new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
         driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
-        By login= By.id("input-email");
+        By login = By.id("input-email");
         driver.findElement(login).sendKeys("avi1");
         driver.navigate().refresh();
         Thread.sleep(3000);
@@ -21,9 +21,6 @@ public class StaleElementException {
         eleLogin.sendKeys("avi3");
         driver.navigate().refresh();
         eleLogin.sendKeys("avi4"); //stale-element-reference-exception
-
-
-
 
 
     }

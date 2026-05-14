@@ -13,35 +13,35 @@ public class UseKeysActions {
 
 
     public static void main(String[] args) {
-    WebDriver driver= new ChromeDriver();
-    Actions act= new Actions(driver);
+        WebDriver driver = new ChromeDriver();
+        Actions act = new Actions(driver);
 
-    driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/register");
+        driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/register");
 
-    WebElement ele1 = driver.findElement(By.xpath("//input[@placeholder='First Name']"));
+        WebElement ele1 = driver.findElement(By.xpath("//input[@placeholder='First Name']"));
 
-    act.sendKeys(ele1,"Avi").pause(Duration.ofMillis(300)).
-            sendKeys(Keys.TAB).pause(Duration.ofMillis(300)).
+        act.sendKeys(ele1, "Avi").pause(Duration.ofMillis(300)).
+                sendKeys(Keys.TAB).pause(Duration.ofMillis(300)).
                 sendKeys("Tiwari").
-                    sendKeys(Keys.TAB).pause(Duration.ofMillis(300)).
-                        sendKeys("mail").
-                            sendKeys(Keys.TAB).pause(Duration.ofMillis(300)).
-                                sendKeys("phone").
-                                    sendKeys(Keys.TAB).pause(Duration.ofMillis(300)).
-                                       sendKeys("password").
-                                        sendKeys(Keys.TAB).pause(Duration.ofMillis(300)).
-                                            sendKeys("password").pause(Duration.ofMillis(300)).
-                                                sendKeys(Keys.TAB).pause(Duration.ofMillis(300)).
-                                                    sendKeys(Keys.TAB).pause(Duration.ofMillis(300)).
-                                                        sendKeys(Keys.SPACE).pause(Duration.ofMillis(300)).
-                                                            sendKeys(Keys.TAB).pause(Duration.ofMillis(300)).
-                                                                sendKeys(Keys.ENTER).pause(Duration.ofMillis(300)).perform();
+                sendKeys(Keys.TAB).pause(Duration.ofMillis(300)).
+                sendKeys("mail").
+                sendKeys(Keys.TAB).pause(Duration.ofMillis(300)).
+                sendKeys("phone").
+                sendKeys(Keys.TAB).pause(Duration.ofMillis(300)).
+                sendKeys("password").
+                sendKeys(Keys.TAB).pause(Duration.ofMillis(300)).
+                sendKeys("password").pause(Duration.ofMillis(300)).
+                sendKeys(Keys.TAB).pause(Duration.ofMillis(300)).
+                sendKeys(Keys.TAB).pause(Duration.ofMillis(300)).
+                sendKeys(Keys.SPACE).pause(Duration.ofMillis(300)).
+                sendKeys(Keys.TAB).pause(Duration.ofMillis(300)).
+                sendKeys(Keys.ENTER).pause(Duration.ofMillis(300)).perform();
 
-   //navigate bottom or top of page- operating system dependent
-   act.sendKeys(Keys.CONTROL).sendKeys(Keys.END).perform();// control for windows
-   act.sendKeys(Keys.COMMAND).sendKeys(Keys.HOME).perform();// command for mac
+        //navigate bottom or top of page- operating system dependent
+        act.sendKeys(Keys.CONTROL).sendKeys(Keys.END).perform();// control for windows
+        act.sendKeys(Keys.COMMAND).sendKeys(Keys.HOME).perform();// command for mac
 
-    act.scrollToElement(ele1);
+        act.scrollToElement(ele1);
     }
 
 

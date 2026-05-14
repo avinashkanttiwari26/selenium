@@ -12,7 +12,7 @@ public class JavaScriptUtil {
 
     public JavaScriptUtil(WebDriver driver) {
         this.driver = driver;
-        js = (JavascriptExecutor)this.driver;
+        js = (JavascriptExecutor) this.driver;
     }
 
     public String getTitleByJs() {
@@ -25,7 +25,7 @@ public class JavaScriptUtil {
 
 
     public void generateJSAlert(String mesg) {
-        js.executeScript("alert('"+mesg+"')");
+        js.executeScript("alert('" + mesg + "')");
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
@@ -36,7 +36,7 @@ public class JavaScriptUtil {
     }
 
     public void generateJSConfirm(String mesg) {
-        js.executeScript("confirm('"+mesg+"')");
+        js.executeScript("confirm('" + mesg + "')");
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
@@ -48,7 +48,7 @@ public class JavaScriptUtil {
 
 
     public void generateJSPrompt(String mesg, String value) {
-        js.executeScript("prompt('"+mesg+"')");
+        js.executeScript("prompt('" + mesg + "')");
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
@@ -86,7 +86,7 @@ public class JavaScriptUtil {
     }
 
     public void scrollPageDown(String height) {
-        js.executeScript("window.scrollTo(0, '"+height+"');");
+        js.executeScript("window.scrollTo(0, '" + height + "');");
     }
 
     public void scrollPageUp() {
@@ -99,19 +99,21 @@ public class JavaScriptUtil {
 
     /**
      * example: "document.body.style.zoom = '400.0%'"
+     *
      * @param zoomPercentage
      */
     public void zoomFirefoxChromeEdgeSafari(String zoomPercentage) {
-        String zoom = "document.body.style.zoom = '"+zoomPercentage+"%'";
+        String zoom = "document.body.style.zoom = '" + zoomPercentage + "%'";
         js.executeScript(zoom);
     }
 
     /**
      * example: "document.body.style.MozTransform = 'scale(0.5)'; ";
+     *
      * @param zoomPercentage
      */
     public void zoomFirefox(String zoomPercentage) {
-        String zoom = "document.body.style.MozTransform = 'scale("+zoomPercentage+")'";
+        String zoom = "document.body.style.MozTransform = 'scale(" + zoomPercentage + ")'";
         js.executeScript(zoom);
     }
 
@@ -149,8 +151,6 @@ public class JavaScriptUtil {
         js.executeScript("document.getElementById('" + id + "').value='" + value + "'");
         //document.getElementById('input-email').value ='tom@gmail.com'
     }
-
-
 
 
 }

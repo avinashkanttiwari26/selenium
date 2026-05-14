@@ -13,7 +13,7 @@ public class BrowserWindowHandling {
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver = new ChromeDriver();
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");//parent
-        String parentWindowHandle= driver.getWindowHandle();
+        String parentWindowHandle = driver.getWindowHandle();
         Thread.sleep(3000);
 
         driver.findElement(By.xpath("//a[contains(@href, 'twitter')]")).click();
@@ -28,8 +28,8 @@ public class BrowserWindowHandling {
         Set<String> windowHandles = driver.getWindowHandles();
 
         //driver.getWindowHandles().forEach(System.out::println);
-        Iterator<String> it= windowHandles.iterator();
-        ArrayList<String> whs= new ArrayList<>();
+        Iterator<String> it = windowHandles.iterator();
+        ArrayList<String> whs = new ArrayList<>();
 
 /*        //below code will close even parent window
         while (it.hasNext())
@@ -40,12 +40,11 @@ public class BrowserWindowHandling {
             driver.switchTo().window(wh).close();
             Thread.sleep(1000);
         }*/
-        while (it.hasNext())
-        {
+        while (it.hasNext()) {
             String wh = it.next();
             System.out.println(wh);
             whs.add(wh);
-            if(!wh.equals(parentWindowHandle))driver.switchTo().window(wh).close();
+            if (!wh.equals(parentWindowHandle)) driver.switchTo().window(wh).close();
             Thread.sleep(1000);
         }
         driver.switchTo().window(parentWindowHandle);

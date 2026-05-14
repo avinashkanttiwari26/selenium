@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="TestNG Regression Suite" verbose="4" thread-count="3"> <!--parallel="tests"-->
+
+
+    <test name="Google Test _ chrome">
+
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="appsParametrisation.GoogleTest"/>
+        </classes>
+    </test>
+
+    <test name="OpenCartParamTest _ edge">
+        <parameter name="browser" value="edge"/>
+
+        <classes>
+            <class name="appsParametrisation.OpenCartParamTest"/>
+        </classes>
+    </test>
+
+    <test name="OpenCRM_ chrome">
+        <!--        <parameter name="url" value="https://google.com" />-->
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="appsParametrisation.OpenCRMTest"/>
+        </classes>
+    </test>
+
+
+</suite>

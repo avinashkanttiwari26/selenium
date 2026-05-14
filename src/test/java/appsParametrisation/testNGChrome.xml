@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="TestNG Regression Suite" verbose="3" thread-count="3"> <!--parallel="tests"-->
+
+    <parameter name="browser" value="chrome"/>
+
+    <test name="Google Test">
+        <parameter name="url" value="https://www.google.com"/>
+        <classes>
+            <class name="appsParametrisation.GoogleTest"/>
+        </classes>
+    </test>
+
+    <test name="OpenCartParamTest">
+        <parameter name="url" value="https://naveenautomationlabs.com/opencart/"/>
+        <classes>
+            <class name="appsParametrisation.OpenCartParamTest"/>
+        </classes>
+    </test>
+
+    <test name="OpenCRM">
+        <parameter name="url" value="https:www.opencrm.co.uk/"/>
+        <classes>
+            <class name="appsParametrisation.OpenCRMTest"/>
+        </classes>
+    </test>
+
+
+</suite>

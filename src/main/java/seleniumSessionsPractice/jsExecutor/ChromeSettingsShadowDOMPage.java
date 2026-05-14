@@ -16,7 +16,7 @@ public class ChromeSettingsShadowDOMPage {
         String jsScript = "return document.querySelector(\"body > settings-ui\").shadowRoot.querySelector(\"#toolbar\").shadowRoot.querySelector(\"#search\").shadowRoot.querySelector(\"#searchInput\")";
 
         JavascriptExecutor js = ((JavascriptExecutor) driver);
-        WebElement search = (WebElement)js.executeScript(jsScript);
+        WebElement search = (WebElement) js.executeScript(jsScript);
 
         search.sendKeys("notification");
 

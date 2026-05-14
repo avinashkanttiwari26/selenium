@@ -18,7 +18,7 @@ public class AlertJavaScriptPopUpHandling {
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://the-internet.herokuapp.com/javascript_alerts");
-        driver.findElement (By.xpath("//button[text()='Click for JS Alert' ]")). click();
+        driver.findElement(By.xpath("//button[text()='Click for JS Alert' ]")).click();
 
 
         Alert alert = driver.switchTo().alert();
@@ -27,9 +27,6 @@ public class AlertJavaScriptPopUpHandling {
         alert.dismiss();// not for Prompt
         alert.sendKeys("admin"); // not for jSalert or confirm, only prompt has textbox
     }
-
-
-
 
 
 }

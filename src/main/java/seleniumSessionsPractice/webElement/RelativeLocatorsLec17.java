@@ -8,18 +8,17 @@ import static org.openqa.selenium.support.locators.RelativeLocator.with;
 
 public class RelativeLocatorsLec17 {
 
-    public static void main(String []ar) throws InterruptedException {
+    public static void main(String[] ar) throws InterruptedException {
 
-        WebDriver driver= new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
         driver.get("https://www.aqi.in/dashboard/canada");
 
         By eleCity = By.xpath("//p[contains(text(), 'Gibbons')]");
-        By rankPath=By.tagName("p");
+        By rankPath = By.tagName("p");
         Thread.sleep(3000);
         String rank = driver.findElement(with(By.tagName("p")).toLeftOf(driver.findElement(eleCity))).getText();
         System.out.print(driver.findElement(with(By.tagName("p")).above(eleCity)).getText()); //Kerrobert, CanadaAnalyze the real-time most air polluted cities in the country.5.
         System.out.print(driver.findElement(with(By.tagName("p")).above(eleCity).below(By.xpath("//p[contains(text(), '7')]"))).getText()); //
-
 
 
         //System.out.print(driver.findElement(with(By.tagName("p")).toRightOf(eleCity)).getText());
@@ -32,11 +31,7 @@ public class RelativeLocatorsLec17 {
         System.out.println(aqiValue);*/
 
 
-
-
-
     }
-
 
 
 }

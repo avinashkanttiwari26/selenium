@@ -8,8 +8,7 @@ import java.util.Properties;
 public class ReadProperty {
     private Properties prop;
 
-    public Properties initProp()
-    {
+    public Properties initProp() {
         try {
             String filePath = "./src/main/java/config/config.properties";
             FileInputStream fis = new FileInputStream(filePath);

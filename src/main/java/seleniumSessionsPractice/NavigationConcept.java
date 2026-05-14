@@ -11,7 +11,7 @@ public class NavigationConcept {
     static WebDriver driver;
 
     public static void main(String[] args) {
-        driver= new ChromeDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://wwww.google.com");
         System.out.println(driver.getTitle());

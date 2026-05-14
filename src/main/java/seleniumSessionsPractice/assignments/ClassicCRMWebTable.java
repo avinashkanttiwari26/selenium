@@ -10,15 +10,14 @@ import java.util.List;
 public class ClassicCRMWebTable {
     static WebDriver driver;
 
-    public static void clickContacts(By locator) throws InterruptedException
-    {
+    public static void clickContacts(By locator) throws InterruptedException {
         Thread.sleep(2000);
         driver.switchTo().frame("mainpanel");
         driver.findElement(locator).click();
     }
 
     public static void clickCheckbox(String name) throws InterruptedException {
-        By eleCheckbox = By.xpath("//a[text() ='"+name+"']/parent::td/preceding-sibling::td/input[@type='checkbox']");
+        By eleCheckbox = By.xpath("//a[text() ='" + name + "']/parent::td/preceding-sibling::td/input[@type='checkbox']");
         driver.findElement(eleCheckbox).click();
     }
 
@@ -27,18 +26,16 @@ public class ClassicCRMWebTable {
         return driver.findElement(eleCompany).getText();
     }
 
-    public static void clickMultiNames(String name)
-    {
-        By eleCheckbox = By.xpath("//a[text() ='"+name+"']/parent::td/preceding-sibling::td/input[@type='checkbox']");
+    public static void clickMultiNames(String name) {
+        By eleCheckbox = By.xpath("//a[text() ='" + name + "']/parent::td/preceding-sibling::td/input[@type='checkbox']");
         List<WebElement> names = driver.findElements(eleCheckbox);
-        for(WebElement n: names)
-        {
+        for (WebElement n : names) {
             n.click();
         }
     }
 
     public static void selectLastMathcingName(String name) throws InterruptedException {
-        By eleCheckbox = By.xpath("(//a[text() ='"+name+"']/parent::td/preceding-sibling::td/input[@type='checkbox'])[last()]");
+        By eleCheckbox = By.xpath("(//a[text() ='" + name + "']/parent::td/preceding-sibling::td/input[@type='checkbox'])[last()]");
         driver.findElement(eleCheckbox).click();
 
         //a[text()='Raman patil']/parent::td/preceding-sibling::td/child::input[@type='checkbox'])[last()]
@@ -47,11 +44,11 @@ public class ClassicCRMWebTable {
 
     public static void main(String[] args) throws InterruptedException {
 
-        driver=new ChromeDriver();
+        driver = new ChromeDriver();
         By username = By.name("username");
         By password = By.name("password");
-        By btnLogin= By.xpath("//input[@value='Login']");
-        By btnContact= By.linkText("CONTACTS");
+        By btnLogin = By.xpath("//input[@value='Login']");
+        By btnContact = By.linkText("CONTACTS");
 
         String url = "https://classic.freecrm.com/";
 
@@ -70,7 +67,7 @@ public class ClassicCRMWebTable {
         Thread.sleep(4000);
 
         //click checkbox
-        String name="Raju Rastogi";
+        String name = "Raju Rastogi";
 /*      By eleCheckbox = By.xpath("//a[text() ='"+name+"']/parent::td/preceding-sibling::td/input[@type='checkbox']");
         driver.findElement(eleCheckbox).click();*/
 
@@ -86,7 +83,7 @@ public class ClassicCRMWebTable {
 
         //select last
         //By eleCheckbox = By.xpath("//a[text() ='"+name+"']/parent::td/preceding-sibling::td/input[@type='checkbox'][last()]");
-        String lastName="Raman patil";
+        String lastName = "Raman patil";
         selectLastMathcingName(lastName);
 
     }

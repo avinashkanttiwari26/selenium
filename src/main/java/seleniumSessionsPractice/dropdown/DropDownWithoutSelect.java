@@ -14,28 +14,23 @@ public class DropDownWithoutSelect {
     static WebDriver driver;
     //WAP to select a value without using select class methods: by index , by value ...
 
-    public void selectValue(By locator, String expectedText)
-    {
+    public void selectValue(By locator, String expectedText) {
         Select sel = new Select(driver.findElement(locator));
         List<WebElement> listOptions = sel.getOptions();
 
-        for (WebElement element: listOptions )
-        {
-            if (element.getText().equals(expectedText.trim()))
-            {
+        for (WebElement element : listOptions) {
+            if (element.getText().equals(expectedText.trim())) {
                 element.click();
                 break;
             }
         }
     }
+
     //WAP to select a value without using select class
-    public void selectWithoutSelectClass(By locator, String expectedText)
-    {
+    public void selectWithoutSelectClass(By locator, String expectedText) {
         List<WebElement> allOptions = driver.findElements(locator);
-        for (WebElement element: allOptions )
-        {
-            if (element.getText().equals(expectedText.trim()))
-            {
+        for (WebElement element : allOptions) {
+            if (element.getText().equals(expectedText.trim())) {
                 element.click();
                 break;
             }
@@ -45,42 +40,37 @@ public class DropDownWithoutSelect {
 
 
     public static void main(String[] args) {
-    driver = new ChromeDriver();
-    driver.manage().window().maximize();
-    driver.get("https://www.orangehrm.com/en/contact-sales/");
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://www.orangehrm.com/en/contact-sales/");
 
-    By locator = By.id("Form_getForm_Country");
-    By locator1 = By.id("Form_getForm_No0fEmployees");
+        By locator = By.id("Form_getForm_Country");
+        By locator1 = By.id("Form_getForm_No0fEmployees");
 
 
 //1   WAP to select a value without using select class methods: by index , by value ...
-    String expectedText = "Canada";
-    Select sel = new Select(driver.findElement(locator));
-    List<WebElement> listOptions = sel.getOptions();
+        String expectedText = "Canada";
+        Select sel = new Select(driver.findElement(locator));
+        List<WebElement> listOptions = sel.getOptions();
 
-    for (WebElement element: listOptions )
-    {
-        if (element.getText().equals(expectedText.trim()))
-        {
-            element.click();
-            break;
+        for (WebElement element : listOptions) {
+            if (element.getText().equals(expectedText.trim())) {
+                element.click();
+                break;
+            }
         }
-    }
 
 //2 WAP to select a value without using select class
-    locator=By.xpath("//select[@name= 'Country']//option");
-    List<WebElement> allOptions = driver.findElements(locator);
-        for (WebElement element: allOptions )
-        {
-            if (element.getText().equals(expectedText.trim()))
-            {
+        locator = By.xpath("//select[@name= 'Country']//option");
+        List<WebElement> allOptions = driver.findElements(locator);
+        for (WebElement element : allOptions) {
+            if (element.getText().equals(expectedText.trim())) {
                 element.click();
                 break;
             }
         }
         List<WebElement> allSelectedOptions = sel.getAllSelectedOptions();
         WebElement firstSelectedOption = sel.getFirstSelectedOption();
-
 
 
     }

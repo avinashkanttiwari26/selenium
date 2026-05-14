@@ -14,30 +14,25 @@ import java.util.Properties;
 public class DuplicateElements {
     static WebDriver driver;
 
-    public static WebElement getElement(By locator)
-    {
+    public static WebElement getElement(By locator) {
         return driver.findElement(locator);
     }
 
-    public static void doClick(By locator)
-    {
-       getElement(locator).click();
+    public static void doClick(By locator) {
+        getElement(locator).click();
     }
 
-    public static List<String> getElementTextLinks(By locator)
-    {
+    public static List<String> getElementTextLinks(By locator) {
         List<WebElement> ele = driver.findElements(locator);
         List<String> eleList = new ArrayList<String>();
-        for (WebElement el1:ele)
-        {
-            if(!el1.getText().isEmpty()) {
+        for (WebElement el1 : ele) {
+            if (!el1.getText().isEmpty()) {
                 eleList.add(el1.getText());
             }
         }
         return eleList;
 
     }
-
 
 
     public static void main(String[] args) throws IOException {
@@ -53,7 +48,7 @@ public class DuplicateElements {
         //
 
         driver.get(urlNaveen);
-       // driver.findElement(By.id("input-email"));
+        // driver.findElement(By.id("input-email"));
         doClick(forgotPwdLink);
 
         By.linkText("Forgot Password");

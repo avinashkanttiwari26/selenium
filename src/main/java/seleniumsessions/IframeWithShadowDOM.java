@@ -1,18 +1,14 @@
 package seleniumsessions;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class IframeWithShadowDOM {
 
-	public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
 
-		//Browser -- page -- shadowdom(open)--iframe--element
-	
-		
+        //Browser -- page -- shadowdom(open)--iframe--element
+
+
 //		WebDriver driver = new ChromeDriver();
 //		driver.get("https://selectorshub.com/iframe-in-shadow-dom/");
 //		Thread.sleep(4000);
@@ -31,22 +27,19 @@ public class IframeWithShadowDOM {
 //		JavaScriptUtil jsUtil = new JavaScriptUtil(driver);
 //		//jsUtil.clickElementByJS(driver.findElement(By.id("close")));
 //		jsUtil.sendKeysUsingWithId("glaf", "Learning");
-		
-		By fn1 = getBy("Tom");
-		System.out.println(fn1);
-		
-		By fn2 = getBy("Lisa");
-		System.out.println(fn2);
-	}
-	
-	
-	public static By getBy(String userName) {
-		By locator = By.xpath("//input[text()='"+userName+"']");
-		return locator;
-	}
-	
-	
-	
-	
+
+        By fn1 = getBy("Tom");
+        System.out.println(fn1);
+
+        By fn2 = getBy("Lisa");
+        System.out.println(fn2);
+    }
+
+
+    public static By getBy(String userName) {
+        By locator = By.xpath("//input[text()='" + userName + "']");
+        return locator;
+    }
+
 
 }

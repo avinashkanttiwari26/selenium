@@ -18,12 +18,12 @@ public class LoginTestP {
         String browser = prop.get("browser").toString();
         String urlNaveen = prop.get("urlNaveen").toString();
 
-        WebDriver driver =brUtils.launchBrowser(browser);
+        WebDriver driver = brUtils.launchBrowser(browser);
         ElementUtils eleUtil = new ElementUtils(driver);
 
         brUtils.getURL(urlNaveen);
-        System.out.println("title: "+brUtils.getPageTitle());
-        System.out.println("url: "+brUtils.getPageCurrentURL());
+        System.out.println("title: " + brUtils.getPageTitle());
+        System.out.println("url: " + brUtils.getPageCurrentURL());
 
         By emailId = By.id("input-email");
         By password = By.id("input-password");
@@ -32,8 +32,6 @@ public class LoginTestP {
         eleUtil.doSendKeys(password, "password");
 
         brUtils.closeBrowser();
-
-
 
 
     }
